@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Network Dashboard | AdminPanel</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">N</div>
+            <div>
+                <h2>Net<span>Monitor</span></h2>
+                <small>NETWORK SYSTEM</small>
+            </div>
+        </div>
+
+        <div class="menu-title">MENU UTAMA</div>
+
+        <nav class="menu">
+
+            <a href="#dashboard" class="menu-link active">
+                <span>▦</span> Dashboard
+            </a>
+
+            <a href="#status" class="menu-link">
+                <span>◉</span> Status Server
+            </a>
+
+            <a href="#traffic" class="menu-link">
+                <span>⌁</span> Lalu Lintas Data
+            </a>
+
+            <a href="#devices" class="menu-link">
+                <span>▣</span> Perangkat
+            </a>
+
+            <a href="#settings" class="menu-link">
+                <span>⚙</span> Pengaturan
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="support-card">
+                <div class="support-icon">✦</div>
+                <h3>Network Support</h3>
+                <p>Sistem monitoring jaringan Anda.</p>
+                <button onclick="showToast('Hubungi administrator jaringan.')">
+                    Hubungi Admin
+                </button>
+            </div>
+
+            <div class="sidebar-footer">
+                © 2026 NetMonitor
+            </div>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content" id="dashboard">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle">☰</button>
+
+                <div>
+                    <h1>Dashboard Overview</h1>
+                    <p>Selamat datang kembali, Administrator!</p>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="clock">
+                    <span>◷</span>
+                    <span id="clock">00:00:00</span>
+                </div>
+
+                <div class="user-profile">
+                    <div class="avatar">A</div>
+                    <div>
+                        <strong>Administrator</strong>
+                        <small>Super Admin</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME BANNER -->
+        <section class="welcome-banner">
+
+            <div class="welcome-text">
+                <span class="welcome-label">NETWORK CONTROL CENTER</span>
+
+                <h2>Monitor Your Network<br>
+                    <span>With Confidence.</span>
+                </h2>
+
+                <p>
+                    Pantau kondisi jaringan, server, dan perangkat
+                    Anda dalam satu dashboard.
+                </p>
+
+                <button onclick="showToast('Dashboard berhasil diperbarui!')">
+                    ↻ Refresh Dashboard
+                </button>
+            </div>
+
+            <div class="banner-decoration">
+                <div class="network-circle">⌁</div>
+                <div class="network-dot dot-one"></div>
+                <div class="network-dot dot-two"></div>
+                <div class="network-dot dot-three"></div>
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="stats-grid" id="status">
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon blue">◉</div>
+                    <span class="stat-label">LIVE STATUS</span>
+                </div>
+
+                <h3>Status Router</h3>
+                <div class="stat-value online">
+                    <span class="pulse"></span>
+                    Online
+                </div>
+
+                <p>Router berjalan normal</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon purple">▥</div>
+                    <span class="stat-label">PERFORMANCE</span>
+                </div>
+
+                <h3>Penggunaan CPU</h3>
+                <div class="stat-value">24%</div>
+
+                <div class="progress">
+                    <div class="progress-bar cpu"></div>
+                </div>
+
+                <p>Penggunaan CPU saat ini</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon green">♙</div>
+                    <span class="stat-label">CONNECTED</span>
+                </div>
+
+                <h3>Total Pengguna</h3>
+                <div class="stat-value">142</div>
+
+                <p>Pengguna aktif</p>
+            </div>
+
+
+            <div class="stat-card">
+                <div class="stat-top">
+                    <div class="stat-icon orange">▣</div>
+                    <span class="stat-label">NETWORK DEVICES</span>
+                </div>
+
+                <h3>Total Perangkat</h3>
+                <div class="stat-value">3</div>
+
+                <p>Perangkat terdaftar</p>
+            </div>
+
+        </section>
+
+
+        <!-- NETWORK INFORMATION -->
+        <section class="information-grid" id="traffic">
+
+            <div class="panel traffic-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h2>Network Performance</h2>
+                        <p>Informasi performa jaringan</p>
+                    </div>
+
+                    <span class="live-badge">
+                        <span class="pulse"></span> LIVE DEMO
+                    </span>
+                </div>
+
+                <div class="traffic-content">
+
+                    <div class="traffic-item">
+                        <div class="traffic-symbol download">↓</div>
+                        <div>
+                            <small>Download Speed</small>
+                            <h3>85.4 <span>Mbps</span></h3>
+                        </div>
+                    </div>
+
+                    <div class="traffic-item">
+                        <div class="traffic-symbol upload">↑</div>
+                        <div>
+                            <small>Upload Speed</small>
+                            <h3>42.8 <span>Mbps</span></h3>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="chart-placeholder">
+                    <div class="chart-line"></div>
+                    <div class="chart-caption">
+                        <span>Network Traffic Overview</span>
+                        <span>Data simulasi</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="panel server-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h2>Server Health</h2>
+                        <p>Kondisi sistem server</p>
+                    </div>
+                </div>
+
+                <div class="server-status">
+                    <div class="server-status-icon">✓</div>
+                    <div>
+                        <h3>All Systems Normal</h3>
+                        <p>Server berjalan dengan baik.</p>
+                    </div>
+                </div>
+
+                <div class="server-detail">
+                    <span>CPU Usage</span>
+                    <strong>24%</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar cpu"></div>
+                </div>
+
+                <div class="server-detail">
+                    <span>Memory Usage</span>
+                    <strong>65%</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar memory"></div>
+                </div>
+
+                <div class="server-detail">
+                    <span>Storage Usage</span>
+                    <strong>48%</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-bar storage"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- DEVICE TABLE -->
+        <section class="panel device-panel" id="devices">
+
+            <div class="panel-heading device-heading">
+
+                <div>
+                    <h2>Aktivitas Perangkat Terbaru</h2>
+                    <p>Daftar perangkat yang terhubung ke jaringan.</p>
+                </div>
+
+                <button class="add-button" onclick="showToast('Fitur tambah perangkat masih berupa demo.')">
+                    + Tambah Perangkat
+                </button>
+
+            </div>
+
+
+            <div class="table-tools">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Cari nama atau IP perangkat..."
+                >
+
+                <select id="statusFilter">
+                    <option value="all">Semua Status</option>
+                    <option value="online">Terhubung</option>
+                    <option value="offline">Putus</option>
+                </select>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>IP ADDRESS</th>
+                            <th>NAMA PERANGKAT</th>
+                            <th>STATUS</th>
+                            <th>AKSI</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="deviceTable">
+
+                        <tr data-status="online">
+                            <td>01</td>
+                            <td>192.168.1.10</td>
+                            <td>
+                                <div class="device-name">
+                                    <span class="device-icon">▣</span>
+                                    PC-Laboratorium-01
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge success">● Terhubung</span>
+                            </td>
+                            <td>
+                                <button class="detail-button"
+                                    onclick="showDetail('PC-Laboratorium-01','192.168.1.10','Terhubung')">
+                                    Detail
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr data-status="online">
+                            <td>02</td>
+                            <td>192.168.1.15</td>
+                            <td>
+                                <div class="device-name">
+                                    <span class="device-icon">▣</span>
+                                    Server-Lokal
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge success">● Terhubung</span>
+                            </td>
+                            <td>
+                                <button class="detail-button"
+                                    onclick="showDetail('Server-Lokal','192.168.1.15','Terhubung')">
+                                    Detail
+                                </button>
+                            </td>
+                        </tr>
+
+                        <tr data-status="offline">
+                            <td>03</td>
+                            <td>192.168.1.22</td>
+                            <td>
+                                <div class="device-name">
+                                    <span class="device-icon">▣</span>
+                                    Printer-Jaringan
+                                </div>
+                            </td>
+                            <td>
+                                <span class="badge danger">● Putus</span>
+                            </td>
+                            <td>
+                                <button class="detail-button"
+                                    onclick="showDetail('Printer-Jaringan','192.168.1.22','Putus')">
+                                    Detail
+                                </button>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+                <div id="emptyMessage" class="empty-message">
+                    Perangkat tidak ditemukan.
+                </div>
+
+            </div>
+
+            <div class="table-footer">
+                Menampilkan data perangkat jaringan.
+                <span>3 Perangkat Terdaftar</span>
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <p>© 2026 NetMonitor Dashboard. All Rights Reserved.</p>
+            <p>Designed with ♥ for Network Management</p>
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- MODAL DETAIL -->
+<div class="modal" id="detailModal">
+
+    <div class="modal-content">
+
+        <button class="close-modal" onclick="closeModal()">×</button>
+
+        <div class="modal-icon">▣</div>
+
+        <h2>Detail Perangkat</h2>
+
+        <div class="modal-information">
+            <p>Nama Perangkat</p>
+            <strong id="detailName">-</strong>
+
+            <p>IP Address</p>
+            <strong id="detailIP">-</strong>
+
+            <p>Status Perangkat</p>
+            <strong id="detailStatus">-</strong>
+        </div>
+
+        <button class="modal-button" onclick="closeModal()">
+            Tutup
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- TOAST -->
+<div class="toast" id="toast">
+    ✓ <span id="toastMessage">Berhasil!</span>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
